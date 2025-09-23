@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import poster from "@assets/imgs/banner-poster.png";
+import video from "@assets/videos/Banner.webm";
+import logo from "@assets/logo.svg";
+---
+
+<section class="relative flex flex-col h-[90dvh] isolate">
+  <!-- Fondo: video -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <video
+      class="absolute inset-0 min-w-full min-h-full
+      object-cover object-center scale-140 md:scale-135 lg:scale-135"
+      src={video}
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster={poster.src}></video>
+    <!-- Overlays -->
+    <div class="absolute inset-0 bg-dark-purple/40"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-dark-purple/20 via-transparent to-dark-purple/70"
+    >
+    </div>
+  </div>
+
+  <!-- Logo superior izquierdo -->
+  <div class="mx-auto container px-4 pt-6">
+    <a href="/" class="inline-block">
+      <Image src={logo} alt="Basmar Beauty" class="w-auto h-16" />
+    </a>
+  </div>
+
+  <!-- Contenido centrado -->
+  <div
+    class="mx-auto relative container flex-1
+    flex w-full flex-col items-center justify-center text-center px-2 md:px-0"
+  >
+    <div class="mb-12">
+      <h1
+        class="font-desert font-normal text-3xl md:text-5xl lg:text-6xl uppercase text-gold"
+      >
+        DISCOVER ZAHREEN
+      </h1>
+      <p class="font-sans mt-4 text-base md:text-xl lg:text-2xl
+text-gold">
+        The alchemy of Arabian past and present
+      </p>
+    </div>
+
+    <div class="absolute bottom-10 flex flex-col items-center">
+      <p class="mt-8 max-w-2xl text-base md:text-lg text-gold mb-4">
+        Zahreen is a collection that reimagines the most exclusive Arabian
+        fragrances into essential everyday indulgences.
+      </p>
+
+      <a
+        href="#for-her"
+        class="text-xs lg:text-base italic tracking-widest text-gold
+       flex flex-col items-center group"
+      >
+        Scroll down to discover the mystery behind each fragrance.
+        <span
+          aria-hidden
+          class="mt-3 block size-3 rotate-45 border-b border-r border-gold"
+        ></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Franja informativa -->
+  <div class="bg-dark-purple">
+    <div
+      class="mx-auto container text-gold px-4 py-3 lg:py-4 lg:px-0s
+      text-center text-base lg:text-lg xl:text-xl"
+    >
+      <span class="font-medium">Extrait de Parfum</span> Luxury, everyday accessible.
+      <br class="" />
+      <span class="italic">
+        With 20%+ fragrance oil concentration, Zahreen is crafted to last
+        longer, feel richer, and stay with you all day.
+      </span>
+    </div>
+  </div>
+</section>
