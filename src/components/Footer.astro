@@ -1,4 +1,4 @@
----
+800---
 import { getImage } from "astro:assets";
 import bgFooter from "@assets/imgs/bgFooter.png"; // <- tu asset
 
@@ -11,13 +11,15 @@ const optimizedBg = await getImage({
 });
 ---
 
-<section
-  class="relative isolate bg-cover bg-no-repeat
-         bg-position-[bottom_-10px_center]
-         lg:bg-position-[bottom_-200px_center]
-         xl:bg-position-[bottom_-500px_center]
-         text-white"
-  style={`background-image: url(${optimizedBg.src});`}
+<section class="relative isolate bg-cover bg-no-repeat
+        bg-position-[center_-120px]
+        sm:bg-position-[center_-400px]
+        md:bg-position-[center_-600px]
+        lg:bg-position-[center_-700px]
+        xl:bg-position-[center_-1100px]
+        2xl:bg-position-[center_-1400px]
+        "
+       style={`background-image: url(${optimizedBg.src});`}
 >
   <div class="container mx-auto px-4">
     <div class="text-center py-16 md:py-20 lg:py-24 xl:py-32">
