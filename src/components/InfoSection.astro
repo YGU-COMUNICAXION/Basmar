@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import heroHim from "@assets/imgs/perfumes.png";
+import heroMobile from "@assets/imgs/perfumesMb.png";
+---
+
+<section class="relative">
+  <!-- Fondo -->
+  <div
+    class="relative aspect-video md:aspect-[1921/439] w-full overflow-hidden"
+  >
+    <Image
+      src={heroMobile}
+      alt="Sadeen, Wahaj y Rawnaq sobre arena"
+      class="absolute inset-0 h-full w-full object-cover lg:hidden"
+      sizes="100vw"
+    />
+    <Image
+      src={heroHim}
+      alt="Sadeen, Wahaj y Rawnaq sobre arena"
+      class="absolute inset-0 h-full w-full object-cover hidden lg:block"
+    />
+  </div>
+
+  <p
+    class="mx-auto container px-4 z-10 absolute top-6 left-1/2 transform -translate-x-1/2
+    font-desert text-center text-lg lg:text-xl xl:text-2xl text-white"
+  >
+    Every perfume has a concentration of fragrance oil exceeding 20%. Our
+    Extrait de Parfum ensures a <br /> sophisticated, multi-layered scent experience
+    from the first spritz to the last whisper.
+  </p>
+</section>
