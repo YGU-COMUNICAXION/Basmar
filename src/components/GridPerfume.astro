@@ -20,6 +20,22 @@ import mediaZahraB from "@assets/imgs/her/zahra2.png";
 import videoZahra from "@assets/videos/her/zahra.webm";
 import CardPerfume from "./CardPerfume.astro";
 
+// FOR HIM
+import cardSadeen from "@assets/imgs/him/sadeenCard.jpg";
+import mediaSadeenA from "@assets/imgs/him/sadeen.jpg";
+import mediaSadeenB from "@assets/imgs/him/sadeen2.png";
+import videoSadeen from "@assets/videos/him/sadeen.webm";
+
+import cardRawnaq from "@assets/imgs/him/rawnaqCard.jpg";
+import mediaRawnaqA from "@assets/imgs/him/rawnaq.jpg";
+import mediaRawnaqB from "@assets/imgs/him/rawnaq2.png";
+import videoRawnaq from "@assets/videos/him/rawnaq.webm";
+
+import cardWahaj from "@assets/imgs/him/wahajCard.jpg";
+import mediaWahajA from "@assets/imgs/him/wahaj.jpg";
+import mediaWahajB from "@assets/imgs/him/wahaj2.png";
+import videoWahaj from "@assets/videos/him/wahaj.webm";
+
 interface Perfume {
   id: string;
   slug: string;
@@ -41,13 +57,13 @@ interface Perfume {
     poster: ImageMetadata;
     img1: ImageMetadata;
     img2: ImageMetadata;
-    bgImg: string;
+    bgImage: string;
     theme: string; // color en HEX
   };
 }
 
 // Ejemplo de data (ajusta rutas y textos a tus assets reales)
-const perfumes = [
+const perfumes: Perfume[] = [
   {
     id: "zuhur-jasmine",
     slug: "zuhur-jasmine",
@@ -126,6 +142,84 @@ const perfumes = [
       theme: "#F3C09C",
     },
   },
+  {
+    id: "sadeen-spice",
+    slug: "sadeen-spice",
+    card: {
+      title: "Sadeen Spice",
+      thumb: cardSadeen,
+      alt: "Sadeen Spice bottle with floral background",
+    },
+    modal: {
+      title: "SEDUCE EVERY SENSE WITH SADEEN SPICE.",
+      retailers: "Available at Marshalls,TJ Maxx, TK Maxx y Winners stores.",
+      categories: "AROMATIC | WOODY",
+      size: "SIZE: 3.4 OZ./100 ML",
+      notesTop: "LEMON, BERGAMOT, PINK PEPPER, ROSEMARY",
+      notesHeart: "LAVENDER, FRESH BREEZE, CARAMEL, PATCHOULI",
+      notesBase: "MUSK, VANILLA SUGAR, TONKA BEAN, AMBERWOOD",
+      description:
+        "Sadeen Spice is an aromatic woody seduction, where bright lemon and bergamot spark alongside pink pepper and rosemary. As it unfolds, a heart of lavender floats on a fresh breeze, sweetened by caramel and deepened by patchouli. The drydown reveals a warm embrace of musk, vanilla sugar, tonka bean, and amberwood.",
+      video: videoSadeen,
+      poster: cardSadeen,
+      img1: mediaSadeenA,
+      img2: mediaSadeenB,
+      bgImage: "#FFB07E",
+      theme: "#E5C396",
+    },
+  },
+  {
+    id: "rawnaq-amber",
+    slug: "rawnaq-amber",
+    card: {
+      title: "Rawnaq Amber",
+      thumb: cardRawnaq,
+      alt: "Rawnaq Amber bottle with warm light and spices",
+    },
+    modal: {
+      title: "RAWNAQ AMBER: THE SCENT OF A LASTING IMPRESSION.",
+      retailers: "Available at Marshalls,TJ Maxx, TK Maxx y Winners stores.",
+      categories: "EDIBLE | ORIENTAL | AROMATIC",
+      size: "SIZE: 3.4 OZ./100 ML",
+      notesTop: "BERGAMOT, CARDAMOM",
+      notesHeart: "VANILLA BISCUIT, TOFFEE",
+      notesBase: "MUSK, VANILLA POWDER, GAIAC WOOD",
+      description:
+        "Rawnaq Amber is a fragrance of pure warmth and elegance where the bright zest of bergamot dances with spicy cardamom. Its heart unfolds into a comforting Vanilla Biscuit, intertwined with rich Toffee, before settling into a soft base of Musk, Vanilla Powder, and Gaiac Wood.",
+      video: videoRawnaq,
+      poster: cardRawnaq,
+      img1: mediaRawnaqA,
+      img2: mediaRawnaqB,
+      bgImage: "#7C5B33",
+      theme: "#FAC58F",
+    },
+  },
+  {
+    id: "wahaj-firewood",
+    slug: "wahaj-firewood",
+    card: {
+      title: "Wahaj Firewood",
+      thumb: cardWahaj,
+      alt: "Wahaj Firewood bottle with glowing embers",
+    },
+    modal: {
+      title: "IGNITE THE NIGHT WITH WAHAJ FIREWOOD.",
+      retailers: "Available at Marshalls,TJ Maxx, TK Maxx y Winners stores.",
+      categories: "WOODY | AMBERY",
+      size: "SIZE: 3.4 OZ./100 ML",
+      notesTop: "SAFFRON, CLOVES, PEACH",
+      notesHeart: "TOFFEE, HELIOTROPE, GAIAC WOOD",
+      notesBase: "VANILLA, AMBER WOOD, PATCHOULI",
+      description:
+        "Wahaj Firewood captures the intensity of Arabian nights with opulent saffron, intense cloves, and sun-ripened peach. The heart smolders with Buttery Toffee and Heliotrope over smoky Gaiac Wood, finally resting in a profound base of Creamy Vanilla, Amberwood, and Patchouli.",
+      video: videoWahaj,
+      poster: cardWahaj,
+      img1: mediaWahajA,
+      img2: mediaWahajB,
+      bgImage: "#846336",
+      theme: "#FFB07E",
+    },
+  },
 ];
 ---
 
@@ -149,7 +243,7 @@ const perfumes = [
       <div
         class="grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {perfumes.map((p) => <CardPerfume p={p} />)}
+        {perfumes.slice(0, 3).map((p) => <CardPerfume p={p} />)}
       </div>
     </div>
 
@@ -166,6 +260,13 @@ const perfumes = [
       >
         Fragrances that embody strength, allure, and timeless elegance.
       </p>
+
+      <div
+        class="grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <!-- Recorrer la mitad del array de perfumes y colocar la card -->
+        {perfumes.slice(3, 6).map((p) => <CardPerfume p={p} />)}
+      </div>
     </div>
   </div>
 

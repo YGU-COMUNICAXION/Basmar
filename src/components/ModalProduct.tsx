@@ -117,7 +117,8 @@ export default function ModalProduct({ containerId, items }: Props) {
             poster={item.card.thumb.src}
             img1={item.modal.img1.src}
             img2={item.modal.img2.src}
-            theme={item.modal.bgImage}
+            bgImage={item.modal.bgImage}
+            theme={item.modal.theme}
             onVideoRef={handleVideoRef}
           />
 
@@ -167,7 +168,10 @@ export default function ModalProduct({ containerId, items }: Props) {
               {item.modal.description}
             </p>
 
-            <p className="mt-3 xl:absolute bottom-4 right-8 text-center text-sm lg:text-base italic opacity-80">
+            <p
+              className="mt-3 xl:mt-0 xl:absolute bottom-4 left-1/2 transform xl:-translate-x-1/2 xl:w-4/5
+             text-center text-sm lg:text-base italic opacity-80"
+            >
               Extrait de Parfum – <b>20%+</b> fragrance oil concentration for
               richness and longer-lasting wear.
             </p>

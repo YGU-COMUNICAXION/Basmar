@@ -5,6 +5,7 @@ type Props = {
   poster: string;
   img1: string;
   img2: string;
+  bgImage?: string; // color en HEX
   theme?: string; // color en HEX
   onVideoRef?(v: HTMLVideoElement | null): void;
 };
@@ -14,6 +15,7 @@ export default function SliderMedia({
   poster,
   img1,
   img2,
+  bgImage,
   theme,
   onVideoRef,
 }: Props) {
@@ -138,8 +140,8 @@ export default function SliderMedia({
           />
         </div>
         <div
-          className={`aspect-[9/16] min-w-full shrink-0 flex items-center justify-center bg-[${theme}]`}
-          style={{ backgroundColor: theme }}
+          className={`aspect-[9/16] min-w-full shrink-0 flex items-center justify-center bg-[${bgImage}]`}
+          style={{ backgroundColor: bgImage }}
         >
           <img
             src={img2}
@@ -159,7 +161,7 @@ export default function SliderMedia({
             className="inline-block size-2 rounded-full"
             style={{
               backgroundColor:
-                i === index ? "rgba(255,255,255,.85)" : "rgba(255,255,255,.4)",
+                i === index ? theme : "rgba(255,255,255)",
             }}
             onClick={() => go(i)}
           />
