@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import bgCurve from "@assets/imgs/bgForms.png"; // la imagen naranja curva que mandaste
+import { getImage } from "astro:assets";
+
+const getOptimizeImage = await getImage({
+  src: bgCurve,
+  widths: [375, 768, 1024, 1920],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 80,
+});
+---
+
+<section
+  class="relative isolate bg-cover bg-position-[bottom_-100px_center] lg:bg-position-[bottom_-200px_center] xl:bg-position-[bottom_-500px_center]"
+  style={`background-image: url(${getOptimizeImage.src});`}
+>
+  <!-- Contenido -->
+  <div class="inset-0 flex items-center">
+    <div class="container mx-auto px-4 py-16">
+      <div class="mx-auto w-full text-center">
+        <p
+          class="mx-auto container text-gold text-base leading-relaxed md:text-lg lg:text-xl xl:text-2xl"
+        >
+          Join our mailing list and be the first to know when our fragrances go
+          live,
+          <br class="hidden sm:block" />
+          plus get updates on new launches and promos.
+        </p>
+
+        <form
+          class="mt-6 flex w-full flex-col items-center gap-4"
+          aria-labelledby="newsletter-title"
+        >
+          <!-- labels accesibles, ocultas visualmente -->
+          <label for="nl-name" class="sr-only">Name</label>
+          <input
+            id="nl-name"
+            name="name"
+            type="text"
+            placeholder="Name"
+            class="h-10 w-full max-w-sm rounded-md border border-white/20 bg-white/95 px-4
+            text-sm lg:text-base text-black placeholder:text-black/50 outline-none focus:border-white/40 focus:ring-0"
+          />
+
+          <label for="nl-email" class="sr-only">Email</label>
+          <input
+            id="nl-email"
+            name="email"
+            type="email"
+            placeholder="you@email.com"
+            class="h-10 w-full max-w-sm rounded-md border border-white/20 bg-white/95 px-4
+            text-sm lg:text-base text-black placeholder:text-black/50 outline-none focus:border-white/40 focus:ring-0"
+          />
+
+          <button
+            type="button"
+            class="mt-4 inline-flex h-10 items-center justify-center rounded-full
+            bg-gold px-6 text-base md:text-lg lg:text-xl tracking-wide text-dark-purple transition
+            hover:cursor-pointer hover:brightness-110"
+          >
+            NOTIFY ME
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

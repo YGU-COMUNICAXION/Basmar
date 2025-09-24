@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+
+// Usa los archivos que tengas (SVG/PNG). Nómbralos como prefieras.
+import tkmaxx from "@assets/imgs/tkmaxx.png";
+import tjmaxx from "@assets/imgs/tjmaxx.png";
+import marshalls from "@assets/imgs/marshalls.png";
+import winners from "@assets/imgs/winners.png";
+---
+
+<section class="relative bg-dark-purple">
+  <div class="container mx-auto px-4 py-8 md:py-10">
+    <p
+      class="mb-4 text-center text-sm text-gold md:text-base lg:text-lg xl:text-2xl"
+    >
+      Find Zahreen fragrances exclusively at
+    </p>
+
+    <div
+      class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16"
+    >
+      <Image
+        src={tkmaxx}
+        alt="TK Maxx"
+        class="h-7 w-auto md:h-8 lg:h-9 opacity-95"
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={tjmaxx}
+        alt="TJ Maxx"
+        class="h-7 w-auto md:h-8 lg:h-9 opacity-95"
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={marshalls}
+        alt="Marshalls"
+        class="h-8 w-auto opacity-95"
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={winners}
+        alt="Winners"
+        class="h-5 w-auto tracking-[0.2em] opacity-95"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
