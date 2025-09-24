@@ -1,0 +1,112 @@
+---
+import { getImage } from "astro:assets";
+import bgFooter from "@assets/imgs/bgFooter.png"; // <- tu asset
+
+// Optimiza y devuelve una sola URL para usar como background-image
+const optimizedBg = await getImage({
+  src: bgFooter,
+  widths: [375, 768, 1024, 1920],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 80,
+});
+---
+
+<section
+  class="relative isolate bg-cover bg-no-repeat
+         bg-position-[bottom_-100px_center]
+         lg:bg-position-[bottom_-200px_center]
+         xl:bg-position-[bottom_-500px_center]
+         text-white"
+  style={`background-image: url(${optimizedBg.src});`}
+>
+  <div class="container mx-auto px-4">
+    <div class="text-center py-16 md:py-20 lg:py-24 xl:py-32">
+      <h1
+        class="font-desert text-2xl leading-tight tracking-wide
+        text-gold md:text-3xl"
+      >
+        PREPARE TO STAR IN THE MOST MYSTERIOUS, UNFORGETTABLE, AND SEDUCTIVE
+        ARABIAN STORY YET.
+      </h1>
+      <p
+        class="mt-4 text-sm leading-relaxed text-gold
+        md:text-base lg:text-lg xl:text-xl"
+      >
+        A collection by Basmar Beauty: where we craft fragrances not just to
+        wear, but to transform.
+      </p>
+
+      <!-- Separador fino -->
+    </div>
+
+    <hr class="mx-auto h-px w-9/10 border-0 bg-[#C56C2D]" />
+
+    <!-- Franja inferior: retailers + social -->
+    <div
+      class="mt-6 flex flex-col items-center gap-4 pb-5
+      md:mt-8 md:flex-row md:items-center md:justify-between"
+    >
+      <!-- Nombres de retailers (texto) -->
+      <div class="text-base text-gold md:text-sm">
+        <span class="">Buy your Zahreens fragrance at</span>
+        <span
+          class="mt-1 inline-flex flex-wrap justify-center gap-x-4 gap-y-1 md:mt-0 md:gap-x-6"
+        >
+          <span class="">TJ Maxx</span>
+          <span class="">TK Maxx</span>
+          <span class="">Marshalls</span>
+          <span class="">Winners</span>
+        </span>
+      </div>
+
+      <!-- Íconos sociales (SVG, sin dependencias) -->
+      <div class="flex items-center gap-4">
+        <a
+          href="https://instagram.com"
+          aria-label="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex size-6 items-center justify-center rounded-full text-[var(--color-gold)] hover:brightness-110"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.4 0H5.60001C4.11501 0.00199987 2.69212 0.591999 1.64201 1.64201C0.591999 2.69201 0.0020224 4.11501 0 5.60001V18.4C0.00199987 19.885 0.591999 21.3079 1.64201 22.358C2.69201 23.408 4.11501 23.998 5.60001 24H18.4C19.885 23.998 21.3079 23.408 22.358 22.358C23.408 21.308 23.998 19.885 24 18.4V5.60001C23.998 4.11501 23.408 2.69212 22.358 1.64201C21.308 0.591999 19.885 0.0020224 18.4 0ZM22.4 18.4C22.399 19.46 21.977 20.477 21.227 21.227C20.477 21.977 19.46 22.399 18.4 22.4H5.60001C4.54002 22.399 3.52301 21.977 2.77301 21.227C2.02301 20.477 1.60102 19.46 1.60002 18.4V5.59999C1.60102 4.54 2.02301 3.52299 2.77301 2.77299C3.52301 2.02298 4.54 1.60099 5.60001 1.6H18.4C19.46 1.601 20.477 2.02298 21.227 2.77299C21.977 3.52299 22.399 4.53997 22.4 5.59999V18.4ZM12 6.39999C10.515 6.39999 9.09005 6.98999 8.03994 8.03997C6.98983 9.08995 6.39996 10.515 6.39996 12C6.39996 13.4851 6.98996 14.91 8.03994 15.9601C9.08992 17.0102 10.5149 17.6001 12 17.6001C13.4851 17.6001 14.9099 17.0101 15.9601 15.9601C17.0102 14.9101 17.6 13.4851 17.6 12C17.598 10.515 17.008 9.09213 15.958 8.04202C14.908 6.99201 13.485 6.40201 12 6.39999ZM12 16C10.939 16 9.922 15.579 9.17197 14.828C8.42097 14.078 7.99998 13.061 7.99998 11.9999C7.99998 10.9389 8.42097 9.92195 9.17197 9.17192C9.92198 8.42092 10.939 7.99993 12 7.99993C13.061 7.99993 14.078 8.42092 14.828 9.17192C15.579 9.92192 16 10.9389 16 11.9999C15.999 13.0599 15.577 14.0769 14.827 14.827C14.077 15.577 13.06 15.999 12 16ZM20.1999 5.19986C20.1999 5.76585 19.8589 6.27685 19.3359 6.49286C18.8129 6.70986 18.2099 6.58986 17.8099 6.18986C17.4099 5.78986 17.2899 5.18686 17.5069 4.66387C17.7229 4.14087 18.2339 3.79988 18.7999 3.79988C19.5729 3.79988 20.1999 4.42685 20.1999 5.19986Z"
+              fill="#FFC988"></path>
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com"
+          aria-label="Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex size-6 items-center justify-center rounded-full text-[var(--color-gold)] hover:brightness-110"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_1_386)">
+              <path
+                d="M13.6323 19.7501C13.6323 18.4818 13.6323 17.197 13.6323 15.9286C13.6323 15.5333 13.7471 15.418 14.1244 15.4344C14.7806 15.4674 15.4204 15.4344 16.0766 15.4344C16.3227 15.4344 16.4211 15.3521 16.4539 15.0885C16.5523 14.2155 16.6836 13.326 16.8148 12.453C16.864 12.14 16.8148 12.0082 16.4375 12.0082C15.6337 12.0247 14.8298 12.0082 14.026 12.0082C13.7143 12.0082 13.6159 11.9094 13.6323 11.6129C13.6651 10.8552 13.5503 10.0974 13.7471 9.33971C13.9768 8.43374 14.5017 8.00546 15.4368 7.98899C15.8469 7.98899 16.2406 7.95605 16.6508 7.95605C16.864 7.95605 16.9953 7.90663 16.9953 7.64308C16.9953 6.90183 16.9953 6.1441 16.9953 5.40286C16.9953 5.18872 16.9132 5.10636 16.7164 5.07341C15.4696 4.82633 14.2229 4.7275 12.9925 5.07341C11.2536 5.55111 10.1381 7.0336 10.0561 8.94438C10.0233 9.83388 10.0233 10.7234 10.0561 11.5964C10.0561 11.9588 9.94126 12.0412 9.61316 12.0412C8.87495 12.0247 8.12034 12.0412 7.38213 12.0412C7.11966 12.0412 7.02123 12.107 7.02123 12.3871C7.02123 13.293 7.02123 14.1825 7.02123 15.0885C7.02123 15.3521 7.11966 15.4344 7.38213 15.4344C8.13674 15.4344 8.90776 15.4344 9.66238 15.4344C9.97406 15.4344 10.0561 15.5333 10.0561 15.8462C10.0561 18.4488 10.0561 21.035 10.0561 23.6376C10.0561 23.9176 10.0233 24.0164 9.69518 23.9506C4.62615 22.9952 0.574201 18.5806 0.0656574 13.4907C-0.442887 8.25255 2.05062 3.62386 6.64392 1.26833C12.648 -1.7955 20.2762 0.955361 22.9337 7.14891C25.4272 12.9307 23.3767 19.3219 17.9631 22.5504C16.7656 23.2752 15.4532 23.7199 14.0588 23.9835C13.6651 24.0494 13.5995 23.9341 13.5995 23.5717C13.6159 22.3033 13.5995 21.0185 13.5995 19.7501H13.6323Z"
+                fill="#FFC988"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_1_386">
+                <rect width="24" height="24" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

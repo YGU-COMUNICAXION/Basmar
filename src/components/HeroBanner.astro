@@ -5,7 +5,7 @@ import video from "@assets/videos/Banner.webm";
 import logo from "@assets/logo.svg";
 ---
 
-<section class="relative flex flex-col h-[90dvh] isolate">
+<section class="relative flex flex-col h-[90dvh] lg:h-dvh isolate">
   <!-- Fondo: video -->
   <div class="absolute inset-0 -z-10 overflow-hidden">
     <video
@@ -19,17 +19,17 @@ import logo from "@assets/logo.svg";
       preload="metadata"
       poster={poster.src}></video>
     <!-- Overlays -->
-    <div class="absolute inset-0 bg-dark-purple/40"></div>
+    <!-- <div class="absolute inset-0 bg-dark-purple/40"></div>
     <div
       class="absolute inset-0 bg-gradient-to-b from-dark-purple/20 via-transparent to-dark-purple/70"
     >
-    </div>
+    </div> -->
   </div>
 
   <!-- Logo superior izquierdo -->
   <div class="mx-auto container px-4 pt-6">
     <a href="/" class="inline-block">
-      <Image src={logo} alt="Basmar Beauty" class="w-auto h-16" />
+      <Image src={logo} alt="Basmar Beauty" class="w-auto h-16 lg:h-20" />
     </a>
   </div>
 
@@ -38,7 +38,7 @@ import logo from "@assets/logo.svg";
     class="mx-auto relative container flex-1
     flex w-full flex-col items-center justify-center text-center px-2 md:px-0"
   >
-    <div class="mb-12">
+    <div class="mb-12 lg:mb-24">
       <h1
         class="font-desert font-normal text-3xl md:text-5xl lg:text-6xl xl:text-7xl uppercase text-gold"
       >
@@ -76,7 +76,9 @@ text-gold">
       class="mx-auto container text-gold px-4 py-3 lg:py-4 lg:px-0s
       text-center text-base lg:text-lg xl:text-xl"
     >
-      <span class="font-medium">Extrait de Parfum</span> Luxury, everyday accessible.
+      <span class="font-bold"
+        >Extrait de Parfum Luxury, everyday accessible.</span
+      >
       <br class="" />
       <span class="italic">
         With 20%+ fragrance oil concentration, Zahreen is crafted to last
