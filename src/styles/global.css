@@ -50,4 +50,8 @@
   --color-gold: #ffc988;
   /* Títulos, y bg oscuros */
   --color-dark-purple: #1a0024;
+
+  --bg-bottom-10-center: "bottom -10px center";
+  --bg-bottom-200-center: "bottom -200px center";
+  --bg-bottom-500-center: "bottom -500px center";
 }
