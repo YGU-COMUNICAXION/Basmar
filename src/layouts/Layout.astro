@@ -1,5 +1,6 @@
 ---
-import "../styles/global.css";
+import "@styles/global.css";
+import { ClientRouter, ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title?: string;
@@ -26,6 +27,8 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <ClientRouter />
   </head>
   <body>
     <slot />

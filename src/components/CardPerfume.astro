@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  p: {
+    id: string;
+    slug: string;
+    card: {
+      title: string;
+      thumb: ImageMetadata;
+      alt: string;
+    };
+  };
+}
+
+const { p } = Astro.props as Props;
+---
+
+<article
+  class="product-card group cursor-pointer overflow-hidden transition"
+  tabindex="0"
+  data-product={p.id}
+  id={`card-${p.id}`}
+>
+  <div class="relative aspect-[5/6] overflow-hidden">
+    <Image
+      src={p.card.thumb}
+      alt={p.card.alt}
+      class="h-full w-full transform object-cover transition duration-500 ease-out group-hover:scale-105"
+      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+    />
+  </div>
+  <h3 class="mt-5 text-center font-sans text-xl lg:text-2xl tracking-wide text-dark-purple">
+    {p.card.title}
+  </h3>
+</article>

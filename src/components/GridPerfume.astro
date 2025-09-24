@@ -1,0 +1,208 @@
+---
+import ModalProduct from "@components/ModalProduct";
+import { Image } from "astro:assets";
+
+import cardZuhur from "@assets/imgs/her/zuhurCard.png";
+import mediaA from "@assets/imgs/her/zuhur.jpg";
+import mediaB from "@assets/imgs/her/zuhur2.png";
+import videoZuhur from "@assets/videos/her/zuhur.mp4";
+
+// Nourin
+import cardNourin from "@assets/imgs/her/nourinCard.jpg";
+import mediaNourinA from "@assets/imgs/her/nourin.jpg";
+import mediaNourinB from "@assets/imgs/her/nourin2.png";
+import videoNourin from "@assets/videos/her/nourin.webm";
+
+// Zahra
+import cardZahra from "@assets/imgs/her/zahraCard.jpg";
+import mediaZahraA from "@assets/imgs/her/zahra.jpg";
+import mediaZahraB from "@assets/imgs/her/zahra2.png";
+import videoZahra from "@assets/videos/her/zahra.webm";
+import CardPerfume from "./CardPerfume.astro";
+
+interface Perfume {
+  id: string;
+  slug: string;
+  card: {
+    title: string;
+    thumb: ImageMetadata;
+    alt: string;
+  };
+  modal: {
+    title: string;
+    retailers: string;
+    categories: string;
+    size: string;
+    notesTop: string;
+    notesHeart: string;
+    notesBase: string;
+    description: string;
+    video: string;
+    poster: ImageMetadata;
+    img1: ImageMetadata;
+    img2: ImageMetadata;
+    bgImg: string;
+    theme: string; // color en HEX
+  };
+}
+
+// Ejemplo de data (ajusta rutas y textos a tus assets reales)
+const perfumes = [
+  {
+    id: "zuhur-jasmine",
+    slug: "zuhur-jasmine",
+    card: {
+      title: "Zuhur Jasmine",
+      thumb: cardZuhur,
+      alt: "Zuhur Jasmine bottle among cherry blossoms",
+    },
+    modal: {
+      title: "ZUHUR JASMINE: LEAVING A SWEET AND UNFORGETTABLE PRINT",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx y Winners stores.",
+      categories: "FLORAL | ORIENTAL | FRUITY",
+      size: "SIZE: 3.4 oz./100 ml",
+      notesTop: "PEAR, BERGAMOT, ORANGE, APPLE, CARDAMOM",
+      notesHeart: "ORANGE BLOSSOM, JASMINE, MAGNOLIA, COCONUT",
+      notesBase: "CASHMERE WOOD, HONEY, VANILLA, BENZOIN",
+      description:
+        "Zuhur Jasmine is a floral oriental fragrance with a fruity twist. It opens with bright notes of pear, apple, and citrus, with a hint of cardamom. The heart reveals a delicate blend of jasmine, orange blossom, magnolia, and coconut. Finally, a warm base of cashmere wood, honey, vanilla, and benzoin leaves a lasting trail of timeless elegance.",
+      video: videoZuhur,
+      poster: cardZuhur,
+      img1: mediaA,
+      img2: mediaB,
+      bgImage: "#24092E",
+      theme: "#E2B2D5",
+    },
+  },
+  {
+    id: "nourin-nectar",
+    slug: "nourin-nectar",
+    card: {
+      title: "Nourin Nectar",
+      thumb: cardNourin,
+      alt: "Nourin Nectar bottle with floral background",
+    },
+    modal: {
+      title: "NOURIN NECTAR: WEARING THE SECRET OF A SOPHISTICATED GARDEN.",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx y Winners stores.",
+      categories: "FLORAL | FRUITY",
+      size: "SIZE: 3.4 OZ./100 ML",
+      notesTop: "APPLE, BLACKCURRANT, MANDARIN",
+      notesHeart: "LILY OF THE VALLEY, STRAWBERRY, SUGARY",
+      notesBase: "POWDERY, SANDALWOOD, VANILLA",
+      description:
+        "Nourin Nectar is a radiant fruity-floral fragrance that opens with crisp apple, juicy blackcurrant, and a splash of mandarin. At its heart, it contains a lily of the valley and a sweet strawberry blend in a soft, sugary embrace. It settles into a sophisticated base of creamy sandalwood, powdery notes, and smooth vanilla, leaving a luminous, unforgettable trail.",
+      video: videoNourin,
+      poster: cardNourin,
+      img1: mediaNourinA,
+      img2: mediaNourinB,
+      bgImage: "#843F54",
+      theme: "#FFC3D5",
+    },
+  },
+  {
+    id: "zahra-berry",
+    slug: "zahra-berry",
+    card: {
+      title: "Zahra Berry",
+      thumb: cardZahra,
+      alt: "Zahra Berry bottle with warm floral ambience",
+    },
+    modal: {
+      title: "ZAHRA BERRY: THE SMELL OF A SEDUCTIVE LOVE STORY.",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx y Winners stores.",
+      categories: "FRUITY | AMBERY",
+      size: "SIZE: 3.4 OZ./100 ML",
+      notesTop: "APPLE, RASPBERRY",
+      notesHeart: "ROSE, TOFFEE, CEDAR WOOD",
+      notesBase: "VANILLA, VETIVER, AMBER",
+      description:
+        "Zahra Berry is a deliciously enchanting gourmand scent. It opens with juicy raspberry and crisp apple, then reveals a heart of romantic rose, warm cedar wood, and sweet toffee. The base settles into a rich blend of vanilla, earthy vetiver, and golden amber, leaving a luxurious and unforgettable impression.",
+      video: videoZahra,
+      poster: cardZahra,
+      img1: mediaZahraA,
+      img2: mediaZahraB,
+      bgImage: "#7A3E17",
+      theme: "#F3C09C",
+    },
+  },
+];
+---
+
+<section id="for-her" class="py-16 md:py-12">
+  <div class="container mx-auto px-4">
+    <div class="mb-16 md:mb-12 lg:mb-20">
+      <h2
+        class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl"
+      >
+        FOR HER
+      </h2>
+
+      <p
+        class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl
+      font-light italic lg:text-2xl"
+      >
+        Fragrances that bloom with elegance, sweetness, and allure.
+      </p>
+
+      <!-- Grid de cards -->
+      <div
+        class="grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {perfumes.map((p) => <CardPerfume p={p} />)}
+      </div>
+    </div>
+
+    <div>
+      <h2
+        class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl"
+      >
+        FOR HIM
+      </h2>
+
+      <p
+        class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl
+      font-light italic lg:text-2xl"
+      >
+        Fragrances that embody strength, allure, and timeless elegance.
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal (una sola instancia) -->
+  <!-- Overlay contenedor que tu script toca con data-open -->
+  <div
+    id="modal-for-her"
+    class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm"
+    data-open=""
+  >
+    <ModalProduct containerId="modal-for-her" items={perfumes} client:load />
+  </div>
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const modal = document.getElementById("modal-for-her");
+    console.log(modal);
+    if (!modal) return;
+
+    document.querySelectorAll(".product-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const productId = card.getAttribute("data-product");
+        if (!productId) return;
+        modal.classList.remove("hidden");
+        modal.setAttribute("data-open", productId); // <- React lee esto y pinta
+        document.body.classList.add("no-scroll");
+      });
+    });
+
+    // Cerrar por overlay (click en el contenedor)
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+        modal.setAttribute("data-open", "");
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  });
+</script>

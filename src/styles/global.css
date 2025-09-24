@@ -3,32 +3,32 @@
 /* Candara font */
 @font-face {
   font-family: "Candara";
-  src: url("/fonts/Candara/Candara.ttf") format("ttf");
-  font-weight: normal;
+  src: url("/fonts/Candara/Candara.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Candara";
-  src: url("/fonts/Candara/Candara_Bold.ttf") format("ttf");
-  font-weight: bold;
+  src: url("/fonts/Candara/Candara_Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Candara";
-  src: url("/fonts/Candara/Candara_Italic.ttf") format("ttf");
-  font-weight: normal;
+  src: url("/fonts/Candara/Candara_Italic.ttf") format("truetype");
+  font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Candara";
-  src: url("/fonts/Candara/Candara_Bold_Italic.ttf") format("ttf");
-  font-weight: bold;
+  src: url("/fonts/Candara/Candara_Bold_Italic.ttf") format("truetype");
+  font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
@@ -36,9 +36,8 @@
 /* Font DesertDream */
 @font-face {
   font-family: "DesertDream";
-  src: url("/fonts/DesertDreams/DesertDreamsRegular.ttf") format("ttf"),
-    url("/fonts/DesertDreams/DesertDreamsRegular.otf") format("otf");
-  font-weight: normal;
+  src: url("/fonts/DesertDreams/DesertDreamsRegular.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
