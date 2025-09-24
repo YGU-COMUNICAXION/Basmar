@@ -5,12 +5,12 @@ import video from "@assets/videos/Banner.webm";
 import logo from "@assets/logo.svg";
 ---
 
-<section class="relative flex flex-col h-[90dvh] lg:h-dvh isolate">
+<section class="relative flex flex-col h-dvh lg:h-dvh isolate">
   <!-- Fondo: video -->
   <div class="absolute inset-0 -z-10 overflow-hidden">
     <video
       class="absolute inset-0 min-w-full min-h-full
-      object-cover object-center scale-140 md:scale-135 lg:scale-135"
+      object-cover object-center scale-150 md:scale-135 lg:scale-140"
       src={video}
       autoplay
       muted
@@ -69,21 +69,20 @@ text-gold">
       </a>
     </div>
   </div>
+</section>
 
-  <!-- Franja informativa -->
-  <div class="bg-dark-purple">
-    <div
-      class="mx-auto container text-gold px-4 py-3 lg:py-4 lg:px-0s
-      text-center text-base lg:text-lg xl:text-xl"
+<!-- Franja informativa -->
+<section class="bg-dark-purple">
+  <div
+    class="mx-auto container text-gold px-4 py-3 lg:py-4 lg:px-0s
+    text-center text-base lg:text-lg xl:text-xl"
+  >
+    <span class="font-bold">Extrait de Parfum Luxury, everyday accessible.</span
     >
-      <span class="font-bold"
-        >Extrait de Parfum Luxury, everyday accessible.</span
-      >
-      <br class="" />
-      <span class="italic">
-        With 20%+ fragrance oil concentration, Zahreen is crafted to last
-        longer, feel richer, and stay with you all day.
-      </span>
-    </div>
+    <br class="" />
+    <span class="italic">
+      With 20%+ fragrance oil concentration, Zahreen is crafted to last longer,
+      feel richer, and stay with you all day.
+    </span>
   </div>
 </section>
