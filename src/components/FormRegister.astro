@@ -30,40 +30,118 @@ const getOptimizeImage = await getImage({
         </p>
 
         <form
+          action="https://acumbamail.com/newform/subscribe/uDawUOQ9Z666thKxBJTMIJWI5LF74VM7uhqiP/58822/"
+          method="post"
           class="mt-6 flex w-full flex-col items-center gap-4"
           aria-labelledby="newsletter-title"
         >
-          <!-- labels accesibles, ocultas visualmente -->
-          <label for="nl-name" class="sr-only">Name</label>
+          <!-- Email (usa EXACTAMENTE el name que Acumbamail dio: email_1) -->
+          <label for="id_i73zaa" class="sr-only">Email</label>
           <input
-            id="nl-name"
-            name="name"
-            type="text"
-            placeholder="Name"
-            class="h-10 w-full max-w-sm rounded-md border border-white/20 bg-white/95 px-4
-            text-sm lg:text-base text-black placeholder:text-black/50 outline-none focus:border-white/40 focus:ring-0"
-          />
-
-          <label for="nl-email" class="sr-only">Email</label>
-          <input
-            id="nl-email"
-            name="email"
+            id="id_i73zaa"
+            name="email_1"
             type="email"
             placeholder="you@email.com"
+            required
             class="h-10 w-full max-w-sm rounded-md border border-white/20 bg-white/95 px-4
-            text-sm lg:text-base text-black placeholder:text-black/50 outline-none focus:border-white/40 focus:ring-0"
+           text-sm lg:text-base text-black placeholder:text-black/50 outline-none
+           focus:border-white/40 focus:ring-0"
+            autocomplete="email"
           />
 
+          <!-- (Opcional) Honeypot anti-spam: NO lo declares como required -->
+          <input
+            type="text"
+            name="company"
+            tabindex="-1"
+            autocomplete="off"
+            class="hidden"
+          />
+
+          <!-- Redirección tras registro válido -->
+          <input
+            type="hidden"
+            name="ok_redirect"
+            id="id_redirect"
+            value="/gracias?success=1"
+          />
+
+          <!-- (Opcional) Campos UTM/referrer: crea estos campos en tu lista para guardarlos -->
+          <input type="hidden" name="utm_source" id="utm_source" />
+          <input type="hidden" name="utm_medium" id="utm_medium" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" />
+          <input type="hidden" name="utm_term" id="utm_term" />
+          <input type="hidden" name="utm_content" id="utm_content" />
+          <input type="hidden" name="referrer" id="referrer" />
+
+          <!-- Botón con tu estilo -->
           <button
-            type="button"
+            type="submit"
             class="mt-4 inline-flex h-10 items-center justify-center rounded-full
-            bg-gold px-6 text-base md:text-lg lg:text-xl tracking-wide text-dark-purple transition
-            hover:cursor-pointer hover:brightness-110"
+           bg-gold px-6 text-base md:text-lg lg:text-xl tracking-wide text-dark-purple
+           transition hover:cursor-pointer hover:brightness-110"
           >
             NOTIFY ME
           </button>
+
+          <!-- Mensaje de estado simple si vuelves con ?success=1 -->
+          <p id="form-status" class="text-white/80 text-sm" aria-live="polite">
+          </p>
+
+          <input
+            type="hidden"
+            name="ok_redirect"
+            value="/#newsletter?success=1"
+          />
+          <input
+            type="hidden"
+            name="error_redirect"
+            value="/#newsletter?error=1"
+          />
         </form>
+
+        <p id="form-status" class="text-white/80 text-sm" aria-live="polite">
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    try {
+      const q = new URLSearchParams(window.location.search);
+      const set = (id, v) => {
+        const el = document.getElementById(id);
+        if (el) el.value = v || "";
+      };
+      set("utm_source", q.get("utm_source"));
+      set("utm_medium", q.get("utm_medium"));
+      set("utm_campaign", q.get("utm_campaign"));
+      set("utm_term", q.get("utm_term"));
+      set("utm_content", q.get("utm_content"));
+      set("referrer", document.referrer || "");
+
+      const s = document.getElementById("form-status");
+      if (s && q.get("success") === "1") {
+        s.textContent =
+          "You're in! Check your inbox to confirm your subscription.";
+      }
+    } catch {}
+  })();
+
+  (function () {
+    const q = new URLSearchParams(window.location.search);
+    const status = document.getElementById("form-status");
+
+    if (!status) return;
+    if (q.get("success") === "1") {
+      status.textContent =
+        "¡Gracias! Revisa tu bandeja de entrada para confirmar tu suscripción.";
+      status.classList.add("text-green-400");
+    } else if (q.get("error") === "1") {
+      status.textContent = "Ups, hubo un error. Intenta de nuevo.";
+      status.classList.add("text-red-400");
+    }
+  })();
+</script>
