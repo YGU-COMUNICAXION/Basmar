@@ -1,0 +1,16 @@
+[[redirects]]
+  from = "https://basmarbeauty.com/*"
+  to = "https://www.basmarbeauty.com/zahreen/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "/zahreen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/zahreen/:splat"
+  status = 301
