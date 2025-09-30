@@ -108,27 +108,27 @@ const getOptimizeImage = await getImage({
 </section>
 
 <script>
-  (function () {
-    try {
-      const q = new URLSearchParams(window.location.search);
-      const set = (id, v) => {
-        const el = document.getElementById(id);
-        if (el) el.value = v || "";
-      };
-      set("utm_source", q.get("utm_source"));
-      set("utm_medium", q.get("utm_medium"));
-      set("utm_campaign", q.get("utm_campaign"));
-      set("utm_term", q.get("utm_term"));
-      set("utm_content", q.get("utm_content"));
-      set("referrer", document.referrer || "");
+  // (function () {
+  //   try {
+  //     const q = new URLSearchParams(window.location.search);
+  //     const set = (id, v) => {
+  //       const el = document.getElementById(id);
+  //       if (el) el.value = v || "";
+  //     };
+  //     set("utm_source", q.get("utm_source"));
+  //     set("utm_medium", q.get("utm_medium"));
+  //     set("utm_campaign", q.get("utm_campaign"));
+  //     set("utm_term", q.get("utm_term"));
+  //     set("utm_content", q.get("utm_content"));
+  //     set("referrer", document.referrer || "");
 
-      const s = document.getElementById("form-status");
-      if (s && q.get("success") === "1") {
-        s.textContent =
-          "You're in! Check your inbox to confirm your subscription.";
-      }
-    } catch {}
-  })();
+  //     const s = document.getElementById("form-status");
+  //     if (s && q.get("success") === "1") {
+  //       s.textContent =
+  //         "You're in! Check your inbox to confirm your subscription.";
+  //     }
+  //   } catch {}
+  // })();
 
   (function () {
     const q = new URLSearchParams(window.location.search);
