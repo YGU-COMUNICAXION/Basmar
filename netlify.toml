@@ -1,0 +1,12 @@
+# 1. Redirigir basmarbeauty.com (sin www) a www.basmarbeauty.com
+[[redirects]]
+  from = "https://basmarbeauty.com/*"
+  to = "https://www.basmarbeauty.com/:splat"
+  status = 301
+  force = true
+
+# 2. Redirigir SOLO la raíz a /zahreen/
+[[redirects]]
+  from = "https://www.basmarbeauty.com"
+  to = "https://www.basmarbeauty.com/zahreen/"
+  status = 301
