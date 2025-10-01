@@ -1,16 +1,19 @@
+# Redirigir dominio sin www a www
 [[redirects]]
   from = "https://basmarbeauty.com/*"
-  to = "https://www.basmarbeauty.com/zahreen/:splat"
+  to = "https://www.basmarbeauty.com/:splat"
   status = 301
   force = true
 
+# Redirigir la raíz a /zahreen/
 [[redirects]]
-  from = "/"
-  to = "/zahreen/"
+  from = "https://www.basmarbeauty.com/"
+  to = "https://www.basmarbeauty.com/zahreen/"
   status = 301
-  force = true
+  force = false
 
+# NO redirigir nada que ya esté en /zahreen/*
 [[redirects]]
-  from = "/*"
+  from = "/zahreen/*"
   to = "/zahreen/:splat"
-  status = 301
+  status = 200
