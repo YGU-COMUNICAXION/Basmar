@@ -1,5 +1,5 @@
-# Redirigir la raíz a /zahreen/
 [[redirects]]
   from = "/"
   to = "/zahreen/"
   status = 301
+  force = true
