@@ -54,7 +54,7 @@ type Props = {
 export default function ModalProduct({
   containerId,
   items,
-  collapsedPercent = 60,
+  collapsedPercent = 70,
 }: Props) {
   const [openId, setOpenId] = useState<string>("");
   const videoRef = useRef<HTMLVideoElement | null>(null);
