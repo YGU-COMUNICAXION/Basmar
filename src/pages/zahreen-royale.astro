@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Zahreen Royale">
+  <main class="coming-soon">
+    <p>Zahreen Royale - coming soon.</p>
+    <a href="/zahreen">Back to collection selector</a>
+  </main>
+</Layout>
+
+<style>
+  .coming-soon {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    text-align: center;
+    background: #170101;
+    color: #d6aa63;
+    padding: 1.5rem;
+  }
+
+  .coming-soon p {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .coming-soon a {
+    color: #e4bb77;
+    text-decoration: underline;
+    font-size: 1.2rem;
+  }
+</style>
