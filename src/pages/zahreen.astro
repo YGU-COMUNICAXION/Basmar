@@ -5,36 +5,72 @@ import bannerVideoMp4 from "@assets/videos/Banner.mp4";
 import bannerVideoWebm from "@assets/videos/Banner.webm";
 import wahajCard from "@assets/imgs/him/wahajCard.jpg";
 import rawnaqCard from "@assets/imgs/him/rawnaqCard.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Choose your collection">
-  <main class="collection-selector">
-    <video class="selector-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+  <main class="relative isolate min-h-screen text-amber-600 overflow-hidden">
+    <video
+      class="absolute inset-0 w-full h-full -z-20
+      object-cover object-center scale-150 md:scale-135 lg:scale-140 xl:scale-160"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
       <source src={bannerVideoWebm} type="video/webm" />
       <source src={bannerVideoMp4} type="video/mp4" />
     </video>
 
-    <div class="selector-overlay"></div>
+    <div class="selector-overlay absolute inset-0 -z-10"></div>
 
-    <img src={logo.src} alt="Basmar Beauty" class="brand-logo" loading="eager" />
+    <div class="mx-auto container px-4 pt-6">
+      <a href="" class="inline-block">
+        <Image src={logo} alt="Basmar Beauty" class="w-auto h-16 lg:h-20" />
+      </a>
+    </div>
 
-    <section class="selector-content">
-      <h1>Choose your collection</h1>
+    <section class="max-w-5xl mx-auto text-center relative z-10 px-4 lg:px-0 py-16">
+      <h1 class="mb-8 font-normal text-gold selector-title">
+        Choose your collection
+      </h1>
 
-      <div class="cards-grid">
-        <a class="collection-card" href="/zahreen-royale">
-          <img src={rawnaqCard.src} alt="Zahreen Royale collection" loading="lazy" />
-          <span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <a
+          class="collection-card relative block border border-amber-600 border-opacity-85 bg-black bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
+          href="/zahreen-royale"
+        >
+          <img
+            src={rawnaqCard.src}
+            alt="Zahreen Royale collection"
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-104"
+          />
+          <span
+            class="absolute left-1/2 bottom-5 -translate-x-1/2 border border-amber-600 border-opacity-85 text-amber-200 bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
+          >
             Zahreen Royale
-            <b aria-hidden="true">&gt;</b>
+            <b class="font-normal text-2xl leading-none">&gt;</b>
           </span>
         </a>
 
-        <a class="collection-card" href="/zahreen-original">
-          <img src={wahajCard.src} alt="Zahreen collection" loading="lazy" />
-          <span>
+        <a
+          class="collection-card relative block border border-amber-600 border-opacity-85 bg-black bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
+          href="/zahreen-original"
+        >
+          <img
+            src={wahajCard.src}
+            alt="Zahreen collection"
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-104"
+          />
+          <span
+            class="absolute left-1/2 bottom-5 -translate-x-1/2 border border-amber-600 border-opacity-85 text-amber-200 bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
+          >
             Zahreen
-            <b aria-hidden="true">&gt;</b>
+            <b class="font-normal text-2xl leading-none">&gt;</b>
           </span>
         </a>
       </div>
@@ -43,114 +79,27 @@ import rawnaqCard from "@assets/imgs/him/rawnaqCard.jpg";
 </Layout>
 
 <style>
-  .collection-selector {
-    position: relative;
-    isolation: isolate;
-    min-height: 100vh;
-    padding: 2rem 1.25rem;
-    color: #d6aa63;
-    overflow: hidden;
+  .selector-title {
+    font-size: clamp(2rem, 4vw, 3rem);
   }
 
-  .selector-bg-video,
-  .selector-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .selector-bg-video {
-    object-fit: cover;
-    z-index: -2;
+  .selector-card-label {
+    width: min(260px, calc(100% - 2rem));
   }
 
   .selector-overlay {
     background:
-      radial-gradient(circle at top center, rgba(126, 15, 15, 0.4), rgba(8, 0, 0, 0.8) 58%),
-      linear-gradient(to bottom, rgba(43, 2, 2, 0.6), rgba(12, 1, 1, 0.9));
-    z-index: -1;
-  }
-
-  .brand-logo {
-    width: clamp(100px, 12vw, 140px);
-  }
-
-  .selector-content {
-    max-width: 920px;
-    margin: 2.5rem auto 0;
-    text-align: center;
-  }
-
-  h1 {
-    margin-bottom: 2rem;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
-    color: #d6aa63;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .collection-card {
-    position: relative;
-    display: block;
-    border: 1px solid rgba(214, 170, 99, 0.85);
-    background: rgba(16, 1, 1, 0.65);
-    text-decoration: none;
-    overflow: hidden;
-    min-height: 520px;
-  }
-
-  .collection-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 300ms ease;
-  }
-
-  .collection-card span {
-    position: absolute;
-    left: 50%;
-    bottom: 1.25rem;
-    transform: translateX(-50%);
-    width: min(260px, calc(100% - 2rem));
-    border: 1px solid rgba(214, 170, 99, 0.85);
-    color: #e4bb77;
-    background: rgba(17, 5, 5, 0.5);
-    padding: 0.5rem 0.75rem;
-    font-size: 1.4rem;
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  .collection-card span b {
-    font-weight: 400;
-    font-size: 1.9rem;
-    line-height: 1;
-  }
-
-  .collection-card:hover img {
-    transform: scale(1.04);
+      radial-gradient(
+        circle at top center,
+        rgba(126, 15, 15, 0.15),
+        rgba(8, 0, 0, 0.25) 58%
+      ),
+      linear-gradient(to bottom, rgba(43, 2, 2, 0.15), rgba(12, 1, 1, 0.25));
   }
 
   @media (max-width: 768px) {
-    .cards-grid {
-      grid-template-columns: 1fr;
-    }
-
     .collection-card {
       min-height: 440px;
-    }
-
-    .selector-content {
-      margin-top: 1.5rem;
     }
   }
 </style>
