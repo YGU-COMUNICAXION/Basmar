@@ -1,18 +1,105 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import FormRegister from "@components/FormRegister.astro";
-import GridPerfume from "@components/GridPerfume.astro";
-import HeroBanner from "@components/HeroBanner.astro";
-import InfoSection from "@components/InfoSection.astro";
-import Retailers from "@components/Retailers.astro";
-import Footer from "@components/Footer.astro";
+import logo from "@assets/logo.svg";
+import bannerVideoMp4 from "@assets/videos/Banner.mp4";
+import bannerVideoWebm from "@assets/videos/Banner.webm";
+import wahajCard from "@assets/imgs/him/wahajCard.jpg";
+import rawnaqCard from "@assets/imgs/him/rawnaqCard.jpg";
+import { Image } from "astro:assets";
 ---
 
-<Layout>
-  <HeroBanner />
-  <GridPerfume />
-  <InfoSection />
-  <FormRegister />
-  <!-- <Retailers /> -->
-  <Footer />
+<Layout title="Choose your collection">
+  <main class="relative isolate min-h-screen text-amber-600 overflow-hidden">
+    <video
+      class="absolute inset-0 w-full h-full -z-20
+      object-cover object-center scale-150 md:scale-135 lg:scale-140 xl:scale-160"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src={bannerVideoWebm} type="video/webm" />
+      <source src={bannerVideoMp4} type="video/mp4" />
+    </video>
+
+    <div class="selector-overlay absolute inset-0 -z-10"></div>
+
+    <div class="mx-auto container px-4 pt-6">
+      <a href="" class="inline-block">
+        <Image src={logo} alt="Basmar Beauty" class="w-auto h-16 lg:h-20" />
+      </a>
+    </div>
+
+    <section class="max-w-5xl mx-auto text-center relative z-10 px-4 lg:px-0 py-16">
+      <h1 class="mb-8 font-normal text-gold selector-title">
+        Choose your collection
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <a
+          class="collection-card relative block border border-amber-600 border-opacity-85 bg-black bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
+          href="/zahreen-royale"
+        >
+          <img
+            src={rawnaqCard.src}
+            alt="Zahreen Royale collection"
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-104"
+          />
+          <span
+            class="absolute left-1/2 bottom-5 -translate-x-1/2 border border-amber-600 border-opacity-85 text-amber-200 bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
+          >
+            Zahreen Royale
+            <b class="font-normal text-2xl leading-none">&gt;</b>
+          </span>
+        </a>
+
+        <a
+          class="collection-card relative block border border-amber-600 border-opacity-85 bg-black bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
+          href="/zahreen-original"
+        >
+          <img
+            src={wahajCard.src}
+            alt="Zahreen collection"
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-104"
+          />
+          <span
+            class="absolute left-1/2 bottom-5 -translate-x-1/2 border border-amber-600 border-opacity-85 text-amber-200 bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
+          >
+            Zahreen
+            <b class="font-normal text-2xl leading-none">&gt;</b>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  .selector-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .selector-card-label {
+    width: min(260px, calc(100% - 2rem));
+  }
+
+  .selector-overlay {
+    background:
+      radial-gradient(
+        circle at top center,
+        rgba(126, 15, 15, 0.15),
+        rgba(8, 0, 0, 0.25) 58%
+      ),
+      linear-gradient(to bottom, rgba(43, 2, 2, 0.15), rgba(12, 1, 1, 0.25));
+  }
+
+  @media (max-width: 768px) {
+    .collection-card {
+      min-height: 440px;
+    }
+  }
+</style>
