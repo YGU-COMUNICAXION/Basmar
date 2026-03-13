@@ -4,7 +4,13 @@ import SliderMedia from "./SliderMedia";
 
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
-function TextPanel({ m }: { m: Perfume["modal"] }) {
+function TextPanel({
+  m,
+  hideExtraitNote = false,
+}: {
+  m: Perfume["modal"];
+  hideExtraitNote?: boolean;
+}) {
   return (
     <>
       <h2 className="font-desert text-2xl tracking-wide md:text-4xl lg:text-5xl">
@@ -37,10 +43,12 @@ function TextPanel({ m }: { m: Perfume["modal"] }) {
         {m.description}
       </p>
 
-      <p className="mt-3 text-center text-sm italic opacity-80 xl:absolute xl:bottom-4 xl:left-1/2 xl:w-4/5 xl:-translate-x-1/2 xl:mt-0 lg:text-base">
-        Extrait de Parfum – <b>20%+</b> fragrance oil concentration for richness
-        and longer-lasting wear.
-      </p>
+      {!hideExtraitNote && (
+        <p className="mt-3 text-center text-sm italic opacity-80 xl:absolute xl:bottom-4 xl:left-1/2 xl:w-4/5 xl:-translate-x-1/2 xl:mt-0 lg:text-base">
+          Extrait de Parfum – <b>20%+</b> fragrance oil concentration for
+          richness and longer-lasting wear.
+        </p>
+      )}
     </>
   );
 }
@@ -49,12 +57,14 @@ type Props = {
   containerId: string;
   items: Perfume[];
   collapsedPercent?: number; // controla altura del sheet colapsado
+  hideExtraitNote?: boolean; // oculta la leyenda de Extrait de Parfum
 };
 
 export default function ModalProduct({
   containerId,
   items,
   collapsedPercent = 70,
+  hideExtraitNote = false,
 }: Props) {
   const [openId, setOpenId] = useState<string>("");
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -70,7 +80,7 @@ export default function ModalProduct({
   // Offsets para el slider
   const [controlsOffset, setControlsOffset] = useState(12);
   const [visibleHeight, setVisibleHeight] = useState<number | undefined>(
-    undefined
+    undefined,
   );
 
   const recalcOffsets = () => {
@@ -86,7 +96,7 @@ export default function ModalProduct({
 
   const map = useMemo(
     () => Object.fromEntries(items.map((i) => [i.id, i])),
-    [items]
+    [items],
   );
   const item = openId ? map[openId] : undefined;
 
@@ -275,7 +285,7 @@ export default function ModalProduct({
             </div>
 
             <div className="max-h-[70svh] overflow-y-auto px-5 pb-6">
-              <TextPanel m={item.modal} />
+              <TextPanel m={item.modal} hideExtraitNote={hideExtraitNote} />
             </div>
           </div>
         </div>
@@ -295,7 +305,7 @@ export default function ModalProduct({
             className="relative overflow-y-auto p-6 text-dark-purple md:p-10"
             style={{ backgroundColor: item.modal.theme }}
           >
-            <TextPanel m={item.modal} />
+            <TextPanel m={item.modal} hideExtraitNote={hideExtraitNote} />
           </div>
         </div>
       </div>
