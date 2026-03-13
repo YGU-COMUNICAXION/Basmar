@@ -17,7 +17,7 @@ const { p } = Astro.props as Props;
 ---
 
 <article
-  class="product-card group cursor-pointer overflow-hidden transition"
+  class="product-card group mx-auto w-full max-w-[430px] cursor-pointer overflow-hidden transition"
   tabindex="0"
   data-product={p.id}
   id={`card-${p.id}`}
