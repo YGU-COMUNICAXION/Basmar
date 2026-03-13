@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import heroHim from "@assets/imgs/perfumesRoyale.png";
+import heroMobile from "@assets/imgs/perfumesRoyaleMb.png";
+---
+
+<section class="relative">
+  <!-- Fondo -->
+  <div
+    class="relative aspect-video lg:aspect-[1933/743] w-full overflow-hidden"
+  >
+    <Image
+      src={heroMobile}
+      alt="Zahreen Royale sobre arena"
+      class="absolute inset-0 h-full w-full object-cover lg:hidden"
+      sizes="100vw"
+    />
+    <Image
+      src={heroHim}
+      alt="Zahreen Royale sobre arena"
+      class="absolute inset-0 h-full w-full object-contain hidden lg:block"
+    />
+  </div>
+
+  <div
+    class="mx-auto container px-4 z-10 absolute top-6 left-1/2 transform -translate-x-1/2"
+  >
+    <h2
+      class="font-desert text-start text-lg lg:text-xl xl:text-3xl text-white mb-4"
+    >
+      A Scent that stays: The power of extrait
+    </h2>
+    <p class="font-desert text-start text-base lg:text-lg text-white max-w-xl">
+      Every perfume has a concentration of fragrance oil exceeding 20%. Our
+      Extrait de Parfum ensures a sophisticated, multi-layered scent experience
+      from the first spritz to the last whisper.
+    </p>
+  </div>
+</section>
