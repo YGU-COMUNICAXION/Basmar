@@ -17,12 +17,12 @@ const { p } = Astro.props as Props;
 ---
 
 <article
-  class="product-card group cursor-pointer overflow-hidden transition"
+  class="product-card group mx-auto w-full max-w-[520px] cursor-pointer overflow-hidden transition"
   tabindex="0"
   data-product={p.id}
   id={`card-${p.id}`}
 >
-  <div class="relative aspect-[5/6] overflow-hidden">
+  <div class="relative aspect-square overflow-hidden">
     <Image
       src={p.card.thumb}
       alt={p.card.alt}

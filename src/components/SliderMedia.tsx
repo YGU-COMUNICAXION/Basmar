@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 type Props = {
-  video: string;
+  video?: string;
   poster: string;
   img1: string;
   img2: string;
@@ -27,7 +27,8 @@ export default function SliderMedia({
   visibleHeight,
   visibleKey,
 }: Props) {
-  const SLIDES = 3;
+  const slides = video ? ["video", "img1", "img2"] : ["img1", "img2"];
+  const slidesCount = slides.length;
   const rootRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -98,14 +99,17 @@ export default function SliderMedia({
   }, [visibleKey]);
 
   function go(i: number, animate = true) {
-    const next = Math.max(0, Math.min(SLIDES - 1, i));
+    const next = Math.max(0, Math.min(slidesCount - 1, i));
     setIndex(next);
     const track = trackRef.current;
     if (!track) return;
     track.style.transitionDuration = animate ? "300ms" : "0ms";
     track.style.transform = `translateX(-${next * slideWRef.current}px)`;
     const v = videoRef.current;
-    if (v) next === 0 ? v.play().catch(() => {}) : v.pause();
+    if (v) {
+      if (video && next === 0) v.play().catch(() => {});
+      else v.pause();
+    }
   }
 
   // Swipe horizontal en píxeles
@@ -200,19 +204,20 @@ export default function SliderMedia({
         ref={trackRef}
         className="flex h-full w-full select-none transition-transform duration-300 ease-out will-change-transform"
       >
-        {/* Slide 1: VIDEO - 100% del contenedor, centrado con object-cover */}
-        <div className="basis-full flex-none h-full relative overflow-hidden">
-          <video
-            ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover"
-            playsInline
-            muted
-            loop
-            preload="none"
-            poster={poster}
-            src={video}
-          />
-        </div>
+        {video && (
+          <div className="basis-full flex-none h-full relative overflow-hidden">
+            <video
+              ref={videoRef}
+              className="absolute inset-0 h-full w-full object-cover"
+              playsInline
+              muted
+              loop
+              preload="none"
+              poster={poster}
+              src={video}
+            />
+          </div>
+        )}
 
         {/* Slide 2: IMG COVER - 100% contenedor, centrado */}
         <div className="basis-full flex-none h-full relative overflow-hidden">
@@ -243,7 +248,7 @@ export default function SliderMedia({
         className="pointer-events-auto absolute left-1/2 z-10 -translate-x-1/2 flex gap-2"
         style={{ bottom: `${controlsOffset}px` }}
       >
-        {[0, 1, 2].map((i) => (
+        {slides.map((_, i) => (
           <button
             key={i}
             aria-label={`Slide ${i + 1}`}
