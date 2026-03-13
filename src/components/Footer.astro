@@ -2,6 +2,12 @@
 import { getImage } from "astro:assets";
 import bgFooter from "@assets/imgs/bgFooter.png"; // <- tu asset
 
+interface Props {
+  hideRetailers?: boolean;
+}
+
+const { hideRetailers = false } = Astro.props;
+
 // Optimiza y devuelve una sola URL para usar como background-image
 const optimizedBg = await getImage({
   src: bgFooter,
@@ -49,6 +55,7 @@ const optimizedBg = await getImage({
       md:mt-8 md:flex-row md:items-center md:justify-between"
     >
       <!-- Nombres de retailers (texto) -->
+      {!hideRetailers && (
       <div class="text-base text-gold md:text-sm">
         <span class="text-center block md:inline md:text-left"
           >Buy your Zahreens fragrance at</span
@@ -62,6 +69,7 @@ const optimizedBg = await getImage({
           <span class="">Winners</span>
         </span>
       </div>
+      )}
 
       <!-- Íconos sociales (SVG, sin dependencias) -->
       <div class="flex items-center gap-4">
