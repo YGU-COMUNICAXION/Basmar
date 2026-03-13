@@ -156,23 +156,33 @@ const perfumes: Perfume[] = [
       </a>
     </div>
 
-    <h2 class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl">
+    <h2
+      class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl"
+    >
       FOR HER
     </h2>
 
-    <p class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl font-light italic lg:text-2xl">
+    <p
+      class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl font-light italic lg:text-2xl"
+    >
       Fragrances that capture the poetry of Arabian femininity.
     </p>
 
-    <div class="mb-16 md:mb-12 lg:mb-20 grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2">
+    <div
+      class="mb-16 md:mb-12 lg:mb-20 grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2"
+    >
       {perfumes.slice(0, 2).map((p) => <CardPerfume p={p} />)}
     </div>
 
-    <h2 class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl">
+    <h2
+      class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl"
+    >
       FOR HIM
     </h2>
 
-    <p class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl font-light italic lg:text-2xl">
+    <p
+      class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl font-light italic lg:text-2xl"
+    >
       Fragrances that embody the Arabian depth, warmth, and character.
     </p>
 
@@ -181,8 +191,17 @@ const perfumes: Perfume[] = [
     </div>
   </div>
 
-  <div id="modal-royale" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm" data-open="">
-    <ModalProduct containerId="modal-royale" items={perfumes} client:load />
+  <div
+    id="modal-royale"
+    class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm"
+    data-open=""
+  >
+    <ModalProduct
+      containerId="modal-royale"
+      items={perfumes}
+      hideExtraitNote={true}
+      client:load
+    />
   </div>
 </section>
 
