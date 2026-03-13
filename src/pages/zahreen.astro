@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import logo from "@assets/logo.svg";
 import bannerVideoMp4 from "@assets/videos/Banner.mp4";
 import bannerVideoWebm from "@assets/videos/Banner.webm";
-import wahajCard from "@assets/imgs/him/wahajCard.jpg";
-import rawnaqCard from "@assets/imgs/him/rawnaqCard.jpg";
+import imgZahreen from "@assets/imgs/zahreen.png";
+import imgRoyale from "@assets/imgs/zahreen-royale.png";
 import { Image } from "astro:assets";
 ---
 
@@ -32,7 +32,9 @@ import { Image } from "astro:assets";
       </a>
     </div>
 
-    <section class="max-w-5xl mx-auto text-center relative z-10 px-4 lg:px-0 py-16">
+    <section
+      class="max-w-5xl mx-auto text-center relative z-10 px-4 lg:px-0 py-16"
+    >
       <h1 class="mb-8 font-normal text-gold selector-title">
         Choose your collection
       </h1>
@@ -42,14 +44,15 @@ import { Image } from "astro:assets";
           class="collection-card relative block border border-amber-600 border-opacity-85 bg-black bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
           href="/zahreen-royale"
         >
-          <img
-            src={rawnaqCard.src}
+          <Image
+            src={imgRoyale}
             alt="Zahreen Royale collection"
             loading="lazy"
             class="w-full h-full object-cover transition-transform duration-300 hover:scale-104"
           />
           <span
-            class="absolute left-1/2 bottom-5 -translate-x-1/2 border border-amber-600 border-opacity-85 text-amber-200 bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
+            class="absolute left-1/2 top-5 -translate-x-1/2 border border-amber-600 border-opacity-85
+            text-amber-200 lg:text-3xl bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
           >
             Zahreen Royale
             <b class="font-normal text-2xl leading-none">&gt;</b>
@@ -57,17 +60,18 @@ import { Image } from "astro:assets";
         </a>
 
         <a
-          class="collection-card relative block border border-amber-600 border-opacity-85 bg-black bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
+          class="collection-card relative block border border-amber-600 border-opacity-85 bg-opacity-65 overflow-hidden min-h-[520px] hover:opacity-100 transition-opacity"
           href="/zahreen-original"
         >
-          <img
-            src={wahajCard.src}
+          <Image
+            src={imgZahreen}
             alt="Zahreen collection"
             loading="lazy"
             class="w-full h-full object-cover transition-transform duration-300 hover:scale-104"
           />
           <span
-            class="absolute left-1/2 bottom-5 -translate-x-1/2 border border-amber-600 border-opacity-85 text-amber-200 bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
+            class="absolute left-1/2 top-5 -translate-x-1/2 border border-amber-600 border-opacity-85
+            text-amber-200 lg:text-3xl bg-black/50 px-3 py-2 text-lg leading-tight flex items-center justify-center gap-3 selector-card-label"
           >
             Zahreen
             <b class="font-normal text-2xl leading-none">&gt;</b>
