@@ -1,33 +1,20 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import FormRegister from "@components/FormRegister.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import InfoSection from "@components/InfoSection.astro";
+import Footer from "@components/Footer.astro";
+import GridPerfumeRoyale from "@components/GridPerfumeRoyale.astro";
 ---
 
 <Layout title="Zahreen Royale">
-  <main class="coming-soon">
-    <p>Zahreen Royale - coming soon.</p>
-    <a href="/zahreen">Back to collection selector</a>
-  </main>
+  <HeroBanner
+    title="DISCOVER ZAHREEN ROYALE"
+    subtitle="The alchemy of Arabian past and present."
+    description="Zahreen is a collection that reimagines the most exclusive Arabian fragrances into essential everyday indulgences."
+  />
+  <GridPerfumeRoyale />
+  <InfoSection />
+  <FormRegister />
+  <Footer />
 </Layout>
-
-<style>
-  .coming-soon {
-    min-height: 100vh;
-    display: grid;
-    place-content: center;
-    gap: 1rem;
-    text-align: center;
-    background: #170101;
-    color: #d6aa63;
-    padding: 1.5rem;
-  }
-
-  .coming-soon p {
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .coming-soon a {
-    color: #e4bb77;
-    text-decoration: underline;
-    font-size: 1.2rem;
-  }
-</style>

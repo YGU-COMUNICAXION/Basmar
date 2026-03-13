@@ -1,0 +1,208 @@
+---
+import ModalProduct from "@components/ModalProduct";
+import CardPerfume from "./CardPerfume.astro";
+
+import cardLayla from "@assets/imgs/her/laylaCard.png";
+import mediaLayla from "@assets/imgs/her/layla2.png";
+
+import cardNoora from "@assets/imgs/her/nooraCard.png";
+import mediaNoora from "@assets/imgs/her/noora2.png";
+
+import cardAtheer from "@assets/imgs/him/atheerCard.png";
+import mediaAtheer from "@assets/imgs/him/atheer2.png";
+
+import cardYazan from "@assets/imgs/him/yazanCard.png";
+import mediaYazan from "@assets/imgs/him/yazan2.png";
+
+interface Perfume {
+  id: string;
+  slug: string;
+  card: {
+    title: string;
+    thumb: ImageMetadata;
+    alt: string;
+  };
+  modal: {
+    title: string;
+    retailers: string;
+    categories: string;
+    size: string;
+    notesTop: string;
+    notesHeart: string;
+    notesBase: string;
+    description: string;
+    video?: string;
+    poster: ImageMetadata;
+    img1: ImageMetadata;
+    img2: ImageMetadata;
+    bgImage: string;
+    theme: string;
+  };
+}
+
+const perfumes: Perfume[] = [
+  {
+    id: "noora-vanille",
+    slug: "noora-vanille",
+    card: {
+      title: "Noora Vanille",
+      thumb: cardNoora,
+      alt: "Noora Vanille perfume",
+    },
+    modal: {
+      title: "NOORA VANILLE",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx and Winners stores.",
+      categories: "ROYAL EDITION",
+      size: "3.4 OZ./100 ML",
+      notesTop: "PENDING",
+      notesHeart: "PENDING",
+      notesBase: "PENDING",
+      description: "Fragrance details will be updated with the final Royale information.",
+      poster: cardNoora,
+      img1: cardNoora,
+      img2: mediaNoora,
+      bgImage: "#3E0E3D",
+      theme: "#E7B8DD",
+    },
+  },
+  {
+    id: "layla-jasmine",
+    slug: "layla-jasmine",
+    card: {
+      title: "Layla Jasmine",
+      thumb: cardLayla,
+      alt: "Layla Jasmine perfume",
+    },
+    modal: {
+      title: "LAYLA JASMINE",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx and Winners stores.",
+      categories: "ROYAL EDITION",
+      size: "3.4 OZ./100 ML",
+      notesTop: "PENDING",
+      notesHeart: "PENDING",
+      notesBase: "PENDING",
+      description: "Fragrance details will be updated with the final Royale information.",
+      poster: cardLayla,
+      img1: cardLayla,
+      img2: mediaLayla,
+      bgImage: "#2E0D2D",
+      theme: "#D9A7D4",
+    },
+  },
+  {
+    id: "yazan-spice",
+    slug: "yazan-spice",
+    card: {
+      title: "Yazan Spice",
+      thumb: cardYazan,
+      alt: "Yazan Spice perfume",
+    },
+    modal: {
+      title: "YAZAN SPICE",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx and Winners stores.",
+      categories: "ROYAL EDITION",
+      size: "3.4 OZ./100 ML",
+      notesTop: "PENDING",
+      notesHeart: "PENDING",
+      notesBase: "PENDING",
+      description: "Fragrance details will be updated with the final Royale information.",
+      poster: cardYazan,
+      img1: cardYazan,
+      img2: mediaYazan,
+      bgImage: "#2D1A10",
+      theme: "#E9C6A0",
+    },
+  },
+  {
+    id: "atheer-fireside",
+    slug: "atheer-fireside",
+    card: {
+      title: "Atheer Fireside",
+      thumb: cardAtheer,
+      alt: "Atheer Fireside perfume",
+    },
+    modal: {
+      title: "ATHEER FIRESIDE",
+      retailers: "Available at Marshalls, TJ Maxx, TK Maxx and Winners stores.",
+      categories: "ROYAL EDITION",
+      size: "3.4 OZ./100 ML",
+      notesTop: "PENDING",
+      notesHeart: "PENDING",
+      notesBase: "PENDING",
+      description: "Fragrance details will be updated with the final Royale information.",
+      poster: cardAtheer,
+      img1: cardAtheer,
+      img2: mediaAtheer,
+      bgImage: "#231A12",
+      theme: "#E7C9A5",
+    },
+  },
+];
+---
+
+<section id="for-her" class="py-16 md:py-12">
+  <div class="container mx-auto px-4">
+    <div class="mb-10 text-center">
+      <a
+        href="/zahreen-original"
+        class="inline-flex items-center gap-3 font-desert text-xl tracking-wide text-dark-purple md:text-3xl"
+      >
+        GO TO ZAHREEN
+        <span class="text-2xl leading-none md:text-4xl">&gt;</span>
+      </a>
+    </div>
+
+    <h2 class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl">
+      FOR HER
+    </h2>
+
+    <p class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl font-light italic lg:text-2xl">
+      Fragrances that capture the poetry of Arabian femininity.
+    </p>
+
+    <div class="mb-16 md:mb-12 lg:mb-20 grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2">
+      {perfumes.slice(0, 2).map((p) => <CardPerfume p={p} />)}
+    </div>
+
+    <h2 class="mb-2 text-center font-desert text-3xl tracking-wide text-dark-purple md:text-4xl">
+      FOR HIM
+    </h2>
+
+    <p class="mb-8 text-center text-dark-purple md:mb-12 md:text-xl font-light italic lg:text-2xl">
+      Fragrances that embody the Arabian depth, warmth, and character.
+    </p>
+
+    <div class="grid grid-cols-1 gap-6 lg:gap-12 xl:gap-16 sm:grid-cols-2">
+      {perfumes.slice(2, 4).map((p) => <CardPerfume p={p} />)}
+    </div>
+  </div>
+
+  <div id="modal-royale" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm" data-open="">
+    <ModalProduct containerId="modal-royale" items={perfumes} client:load />
+  </div>
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const modal = document.getElementById("modal-royale");
+    if (!modal) return;
+
+    document.querySelectorAll(".product-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const productId = card.getAttribute("data-product");
+        if (!productId) return;
+        modal.classList.remove("hidden");
+        modal.setAttribute("data-open", productId);
+        document.body.classList.add("no-scroll");
+      });
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+        modal.setAttribute("data-open", "");
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  });
+</script>
