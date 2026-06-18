@@ -1,46 +1,31 @@
-# Astro Starter Kit: Basics
+# Basmar Beauty Zahreen
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Link del proyecto publicado
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+https://basmarbeauty.com/zahreen/
 
-## 🚀 Project Structure
+## Descripcion
 
-Inside of your Astro project, you'll see the following folders and files:
+Landing page para Zahreen dentro del ecosistema de Basmar Beauty. El sitio presenta una propuesta comercial de belleza con estructura visual enfocada en conversion y comunicacion de marca.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Tecnologias usadas
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Astro
+- React
+- Tailwind CSS
 
-## 🧞 Commands
+## Requisitos
 
-All commands are run from the root of the project, from a terminal:
+- Node.js 18+
+- npm
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Retos tecnicos
 
-## 👀 Want to learn more?
+- Construir una landing adaptable dentro de una ruta especifica del dominio principal.
+- Mantener una identidad visual alineada con la marca y el producto.
+- Optimizar la estructura de secciones para una lectura rapida en dispositivos moviles.
+- Preparar el sitio para despliegue estatico con base de URL controlada.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Creditos
+
+Desarrollado por Jonathan Alexis Bello Lopez.
